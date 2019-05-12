@@ -1,0 +1,27 @@
+<aiml version="1.0.1" encoding="UTF-8">
+    <category>
+        <pattern>hello</pattern>
+        <template>
+            hello world
+        </template>
+    </category>
+    <category>
+        <pattern>我是李雷</pattern>
+        <template>
+            我叫韩梅梅
+        </template>
+    </category>
+
+    <category>
+        <pattern>* ARE *</pattern>
+        <template>
+            i am fine thank you
+        </template>
+    </category>
+    <category>
+        <pattern>* 好 *</pattern>
+        <template>
+            是的，我很好
+        </template>
+    </category>
+</aiml>
