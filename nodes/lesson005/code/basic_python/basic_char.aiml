@@ -1,0 +1,103 @@
+<aiml version="1.0.1" encoding="UTF-8">
+    <!--获取参数-->
+    <category>
+        <pattern>一个*是*吗</pattern>
+        <template>
+            第一个参数是<star index = "1"/>,第二个参数是<star index = "2"/>
+        </template>
+    </category>
+    <!--随机标签-->
+    <category>
+        <pattern>好想</pattern>
+        <template>
+            <random>
+                <li>我也想你了</li>
+                <li>不要脸</li>
+                <li>嗯嗯</li>
+                <li>然后呢</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>好想*</pattern>
+        <template>
+           <srai>好想</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>我是*</pattern>
+        <template>
+        <!--设置上下文-->
+            你好，<set name="username"><star/></set>,很高兴见到你
+        </template>
+    </category>
+
+    <category>
+        <pattern>晚安</pattern>
+        <!--获取变量-->
+        <template>
+            美梦，<get name="username"/>,晚安
+        </template>
+    </category>
+
+    <category>
+        <pattern>*明星*</pattern>
+        <template>
+            刘德华
+        </template>
+    </category>
+    <!--匹配上文中有刘德华-->
+    <category>
+       <pattern>我喜欢张学友</pattern>
+       <that>刘德华</that>
+        <template>我也喜欢他</template>
+    </category>
+    <!--主题-->
+    <category>
+       <pattern>*作业*</pattern>
+       <template>好啊，聊聊 <set name="topic">作业</set>吧</template>
+    </category>
+    <topic name = "作业">
+        <category>
+           <pattern>好难啊</pattern>
+           <template>对啊，作业真难</template>
+        </category>
+        <category>
+           <pattern>作业怎么做</pattern>
+           <template>我也不知道</template>
+        </category>
+    </topic>
+
+    <category>
+       <pattern>*</pattern>
+       <template>我没太听懂</template>
+    </category>
+
+    <!--隐藏显示-->
+    <category>
+       <pattern>我的名字是*</pattern>
+       <template>你好，欢迎你<think><set name = "username1"><star/></set></think></template>
+    </category>
+    <category>
+       <pattern>再见</pattern>
+       <template>好的，再见<get name = "username1"/></template>
+    </category>
+    <!--未解决-->
+    <category>
+       <pattern>我喜欢*</pattern>
+
+       <template>
+            <think>
+                <set name = "s"><star/></set>
+            </think>
+            哇，
+            <condition name = "s">
+                <li value = "健身">你好帅</li>
+                <li value = "读书">你好有学识吧</li>
+                <li>牛啊</li>
+            </condition>
+       </template>
+    </category>
+</aiml>
